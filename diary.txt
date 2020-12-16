@@ -1,0 +1,160 @@
+
+
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| Date     | Start | End   | Activity                | Comments                                              |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| 24/07/20 | 09:30 | 10:00 | reading specs           |                                                       |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 13:00 | 15:00 | coding and testing      | Initialised subset 0                                  |
+|          |       |       |                         | Implemented subroutine that converts 'echo' to 'print'|
+|          |       |       |                         | Implemented subroutine that adds ';' to end of line if|
+|          |       |       |                         | required                                              |
+|          |       |       |                         | test00.sh: Tests ';' is not appended to '#!/bin/dash  |
+|          |       |       |                         | , comments, nor empty lines                           |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 15:30 | 17:10 | coding and testing      | Implemented subroutine for variable assignment '='    |
+|          |       |       |                         | Modified sub 'echo' so redundant quotation marks are  |
+|          |       |       |                         | not printed, this is tested by test01.sh              |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 19:10 | 19:50 | debugging               | Changed sub 'echo' and 'var_assign' so '"' is escaped |
+|          |       |       |                         | when it is meant to be printed as string              |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| 26/07/20 | 11:00 | 12:45 | coding                  | Initialised subset 1: for loop                        |
+|          |       |       |                         |                                                       |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 13:10 | 13:50 | coding                  | Initialised subset 1: for loop + read                 |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 22:00 | 22:30 | coding                  | Initialised subset 2: args ($1 -> $ARGV[1])           |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| 28/07/20 | 09:00 | 11:45 | coding                  | Fixed args ($1 -> $ARGV[0])                           |
+|          |       |       |                         | Implemented if...elif...else...fi                     |
+|          |       |       |                         | Includes if test a = b and if [ a = b ], string cmp   |
+|          |       |       |                         | only (translating into perl's 'eq', 'ne', 'gt' etc)   |
+|          |       |       |                         | including regex                                       |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 20:00 | 21:45 | coding                  | Implemented conversion of expr (arithmetic)           |
+|          |       |       |                         | including sum=`expr 2 + 2`                            |
+|          |       |       |                         |           sum=`expr $a + $b`                          |
+|          |       |       |                         |           sum=$(expr $a + b)                          |
+|          |       |       |                         | Had to tweak sub var_assign so sub expr can work      |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 22:00 | 23:00 | debugging               | After testing code,  modified sub expr to include:    |
+|          |       |       |                         | expr 1 + 1 -> print 1 + 1, "\n";                      |
+|          |       |       |                         | Handling \* in expr 4 \* 8 -> 4 * 8                   |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| 29/07/20 | 20:00 | 20:45 | debugging               | Modified if_then sub for successful conversion of     |
+|          |       |       |                         | if [ $(expr $a + $b) = 3 ] ...                        |
+|          |       |       |                         | Also tweaked sub var_assign as a result...            |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| 30/07/20 | 09:40 | 11:40 | coding and debugging    | Modified if_then sub for successful conversion of     |
+|          |       |       |                         | integer comparison such as:                           |
+|          |       |       |                         | if test $n -ge 10...                                  |
+|          |       |       |                         | if [ $n -ge 10 ]...                                   |
+|          |       |       |                         | if [ `expr 1 + 10` -ge 10 ]...                        |
+|          |       |       |                         | if [ $(expr 1 + 10) -ge 10 ]...                       |
+|          |       |       |                         | if [ $(expr $n + 10) -ge 10 ]...                      |
+|          |       |       |                         | if [ `expr $n + 10` -ge 10 ]...                       |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 22:30 | 22:10 | coding                  | Included conversion of while loop                     |
+|          |       |       |                         | Modified semicolon sub for in-line comments           |
+|          |       |       |                         | Implemented test -d, [ -z ]...Autotest sub 1-3 ok     |
+|          |       |       |                         | Yet to convert $@ and test more syntaxes              |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| 31/07/20 | 19:40 | 20:40 | coding                  | fix system"..."                                       |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 20:40 | 21:05 | coding, debugging       | Conversion of $@ to @ARGV implemented                 |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 22:00 | 23:30 | coding                  | Implemented conversion of inline ifs/whiles etc...    |
+|          |       |       |                         | Refer to demo00.sh                                    |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 23:30 | 00:15 | debugging               | Fixed args to handle $# correctly, perl script        |
+|          |       |       |                         | converted from demo00.sh now working correctly        |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| 01/08/20 | 10:00 | 10:55 | debugging               | Fixed for loop to handle $@ vs "$@"                   |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 11:00 | 11:40 | debugging               | "$*" --> "@ARGV", "$@" --> @ARGV                      |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 15:00 | 15:40 | coding                  | Implemented behaviour of unquoted $* and $@ when      |
+|          |       |       |                         | converting these to perl                              |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 20:30 | 00:40 | coding, debugging       | Modified sub echo to accommodate strange use of single|
+|          |       |       |                         | and double quotation marks (refer to demo01.sh)       |
+|          |       |       |                         | Fixed bugs when converting $* and $@, tested with     |
+|          |       |       |                         | test05.sh                                             |
+|          |       |       |                         | Implemented conversion of echo -n in echo sub         |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| 02/08/20 | 09:40 | 11:40 | coding, debugging       | Restructured if_while and test subs to allow          |
+|          |       |       |                         | future implementation of && and ||...                 |
+|          |       |       |                         | Caught bugs from own test cases and demo as a result  |
+|          |       |       |                         | all fixed and autotests ok (exclu subset 4)           |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 13:10 | 14:00 | coding, debugging       | Separate file matching syntax from for_loop and       |
+|          |       |       |                         | include ? and [] as per subset 1                      |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 14:10 | 15:30 | debugging               | Fixed behaviour of file_matching so filenames will be |
+|          |       |       |                         | printed out when matched else print literally         |
+|          |       |       |                         | ** Does NOT work for variables like                   |
+|          |       |       |                         | filename=test??.sh; echo $filename                    |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 17:30 | 19:00 | coding, debugging       | Separated read from for_loop                          |
+|          |       |       |                         | Implemented conversion of $(())                       |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| 04/08/20 |... ALL DAY ...| coding, debugging       | Not very happy with code overall because it's too     |
+|          |               |                         | fragile                                               |
+|          |               |                         |                                                       | 
+|          |               |                         | Shell can print even if no command line args given    |
+|          |               |                         | , managed to implement this behaviour without messing |
+|          |               |                         | up current tests. REFER to ### demo02.sh ###          |
+|          |               |                         | Implemented $() still needs fixing/bug-checking       |
+|          |               |                         | Fixed bugs in echo, inline echo NOT working atm!      |
+|          |               |                         | Finding it difficult shoving things into 'system' esp |
+|          |               |                         | when line does not start with unconvertable code.     |
+|          |               |                         | Need to make converted code pretty (with indentation  |
+|          |               |                         | etc. counter?) if time allows. Pretty Perl sounds like|
+|          |               |                         | an oxymoron. Does anyone read this? Need sleep and    |
+|          |               |                         | ibuprofen before existential crisis is triggered      |
++----------+---------------+-------------------------+-------------------------------------------------------+
+| 05/08/20 | 18:45 | 19:50 | minor edit              | Editted some regex; Planning on implementing &&, ||...|
++----------+---------------+-------------------------+-------------------------------------------------------+
+| 06/08/20 | 10:30 | 12:00 | coding                  | Implementing && and || but behaviour is not entirely  |
+|          |       |       |                         | the same as shell                                     |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 15:00 | 21:30 | coding, debugging       | Found bug in sub test                                 |
+|          |       |       |                         | Inline echo is now working                            |
+|          |       |       |                         | Nested 'if' seems to work need more tests             |
+|          |       |       |                         | Managed to split && and || but behaviour is not the   |
+|          |       |       |                         | same as shell's, didn't have time to delve into the   |
+|          |       |       |                         | mysteries of '&&'...|| seems to give me a lot of bugs |
+|          |       |       |                         | Demo03.sh shows inline echo and &&                    |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| 08/08/20 | 11:30 | 16:00 | debugging               | Modified || to 'or' and && to 'and' in certain cases  |
+|          |       |       |                         | see Demo04                                            |
+|          |       |       |                         | sub sys for dumping things into system isn't great    |
+|          |       |       |                         | Found bugs in processing input, sub test, handling    |
+|          |       |       |                         | inline codes.                                         |
+|          |       |       |                         | Passed 16/18 autotests and own tests/demo after mod   |
++----------+-------+-------+-------------------------+-------------------------------------------------------+ 
+|    "     | 20:00 | 23:10 | coding, debugging       | Found bugs in while loop, nested comments, ||, &&     |
+|          |       |       |                         | variable assignments                                  |
+|          |       |       |                         | Modified tests and demos                              |
+|          |       |       |                         | Managed to indent converted code, looks a bit better  |
+|          |       |       |                         | Passed 17/18 autotests and own tests/demo             |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+| 09/08/20 | 09:15 | 09:50 | debugging               | Found bugs in variable assignment and expr, fixed     |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 10:00 | 12:10 | coding, debugging       | Attempted implementation of subroutines (namely the   |
+|          |       |       |                         | given example is_prime), and some aspects of subset 4 |
+|          |       |       |                         | Found bugs in test, var_assign, expr...(too delicate?)|
+|          |       |       |                         | Passed own tests/demo and autotests                   |
+|          |       |       |                         | Quite glad is_prime can now run but apprehensive about|
+|          |       |       |                         | bugs as this program is quite fragile and heavily     |
+|          |       |       |                         | regex dependent. Plus there are many different        |
+|          |       |       |                         | behaviours of sh and pl yet to be explored.           |
+|          |       |       |                         | To whoever is reading this, I just want to say thank  |
+|          |       |       |                         | you for all the work you've done for us this term,    |
+|          |       |       |                         | it certainly isn't easy reading all those codes.      |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
+|    "     | 13:15 | 14:40 | coding, debugging       | Decided to drop demo02 due to problems caused during  |
+|          |       |       |                         | numerical comparison (now refer to test02), fixed bug |
+|          |       |       |                         | in echo -n. Tests and demos seem ok                   |
++----------+-------+-------+-------------------------+-------------------------------------------------------+
